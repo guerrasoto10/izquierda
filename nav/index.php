@@ -62,7 +62,7 @@ GROUP BY Factura, Cliente, Fecha, RIF_Cliente, Cod_Cliente");
     <?php if($datos->num_rows>0):?>
 	<h3>Datos</h3>
     <p>Facturas Encontradas: <?php echo $datos->num_rows; ?></p>
-    
+
     <table class="responsive-table">
       <thead>
         <tr>
@@ -88,7 +88,21 @@ GROUP BY Factura, Cliente, Fecha, RIF_Cliente, Cod_Cliente");
 		<td><?php echo $d->Cliente; ?></td>
 		<td><?php echo $d->RIF_Cliente; ?></td>
 		<td><?php echo $d->Cod_Cliente; ?></td>
-		<td style="margin-top: 13px" class="btn tooltipped" data-position="right" data-tooltip="I am a tooltip"><?php echo $d->Descripcion; ?></td>
+    <!-- Modal Trigger -->
+    <td style="margin-top: 13px" class="waves-effect waves-light btn modal-trigger btn tooltipped" data-position="right" data-tooltip="Click para ver los Articulos" href="#modal1"><?php echo $d->Descripcion; ?></td>
+    
+      <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+    
+    
     <td><?php echo $d->Base; ?></td>
 		<td><?php echo $d->Importe; ?></td>
 		<td><?php echo $d->Costo; ?></td>
@@ -109,5 +123,4 @@ GROUP BY Factura, Cliente, Fecha, RIF_Cliente, Cod_Cliente");
         <!-- Compiled and minified JavaScript -->
         <script src="js/materialize.js"></script>
     </body>
-
 </html>
